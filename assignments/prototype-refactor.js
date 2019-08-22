@@ -19,8 +19,8 @@ class GameObject{
   }
 }
 
-  class CharacterStats extends(childAttributes){
-    constructor(this, childAttributes){
+  class CharacterStats extends GameObject{
+    constructor(childAttributes){
         super(childAttributes);
         this.healthPoints = childAttributes.healthPoints;
     }
@@ -38,17 +38,20 @@ class GameObject{
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-   function Humanoid (chAttributes){
-     this.weapons = chAttributes.weapons;
-     this.language = chAttributes.language;
-     this.team = chAttributes.team
-     CharacterStats.call(this, chAttributes)
+   class Humanoid extends CharacterStats{
+     constructor(chAttributes){
+        super(chAttributes);
+        this.weapons = chAttributes.weapons;
+        this.language = chAttributes.language;
+        this.team = chAttributes.team
+        
    }
-   Humanoid.prototype = Object.create(CharacterStats.prototype)
+//    Humanoid.prototype = Object.create(CharacterStats.prototype)
   
-   Humanoid.prototype.greet = function(){
-    return `${this.name} offers a greeting in ${this.language}.`
+    greet (){
+        return `${this.name} offers a greeting in ${this.language}.`
    }
+}
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
     * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
