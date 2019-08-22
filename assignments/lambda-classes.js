@@ -6,7 +6,7 @@ class Person {
     this.location = attributes.location;
     }
     speak(){
-        `Hello my name is ${this.name}, I am from ${this.location}.`
+       return `Hello my name is ${this.name}, I am from ${this.location}.`
     }
 }
 const per1 = new Person({
@@ -29,10 +29,10 @@ class Instructor extends Person{
         this.catchPhrase = instAttributes.catchPhrase;
     }
     demo(subject){
-        `'Today we are learning about ${subject}' `
+       return `Today we are learning about ${subject}`
     }
-    grade(student, subject){
-        `'${name} receives a perfect score on ${subject}'`
+    grade(name, subject){
+       return `${name} receives a perfect score on ${subject}`
     }
 }
 const inst1 = new Instructor({
@@ -94,10 +94,35 @@ class Projectmanager extends Instructor{
         this.gradClassName = pmAttribute.gradClassName;
         this.favInstructor = pmAttribute.favInstructor;
     }
-    standup(){
-       return `${name} announces to ${channel}, @channel standy times!​​​​​`
+    standup(channel){
+       return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
-    debugsCode(){
-        return `${name} debugs {student.name}'s code on ${subject}`
+    debugsCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
+const pm1 = new Projectmanager ({
+    name: 'Ceasar',
+    age: 30,
+    location: 'chicago',
+    specialty: 'training',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Lets do this',
+    gradClassName: 'WebFunc1',
+    favInstructor: 'Brit'
+});
+const pm2 = new Projectmanager ({
+    name: 'Matt',
+    age: 60,
+    location: 'tampa bay',
+    specialty: 'python',
+    favLanguage: 'C++',
+    catchPhrase: 'Lets do this',
+    gradClassName: 'WebFunc2',
+    favInstructor: 'Brit'
+});
+console.log(per1.speak())
+console.log(stu2.speak())
+console.log(inst1.grade("carlos", "python"))
+console.log(pm2.debugsCode(inst2, pm2.favLanguage))
+console.log(pm1.standup("web23"))
