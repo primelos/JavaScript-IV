@@ -61,13 +61,13 @@ class Student extends Person{
         this.favSubjects = stuAttributes.favSubject;
     }
     listsSubjects(){
-        return `${this.favSubject}`
+        return `${this.favSubjects}`
     }
-    PRAssignment(student, subject){
-        reutrn `${student.name} has submitted a PR for ${subject}`
+    PRAssignment( subject){
+        return `${this.name} has submitted a PR for ${this.className}`
     }
     sprintChallenge(subject){
-       return `${student.name} has begun sprint challenge on ${subject}`
+       return `${this.name} has begun sprint challenge on ${subject}`
     }
 }
 
@@ -98,7 +98,7 @@ class Projectmanager extends Instructor{
        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
     debugsCode(student, subject){
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+        return `${this.name} debugs ${student.name}'s code on ${this.className}`
     }
 }
 const pm1 = new Projectmanager ({
@@ -126,3 +126,9 @@ console.log(stu2.speak())
 console.log(inst1.grade("carlos", "python"))
 console.log(pm2.debugsCode(inst2, pm2.favLanguage))
 console.log(pm1.standup("web23"))
+console.log(stu2.listsSubjects())
+console.log(stu2.PRAssignment(stu2.className))
+console.log(stu1.sprintChallenge("web design"))
+console.log(pm2.speak())
+
+console.log(stu2.standup("IOS"))
